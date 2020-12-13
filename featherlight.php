@@ -85,25 +85,36 @@ class FeatherlightPlugin extends Plugin
                 };
                 return Lightbox;
             });";
+
+            $file = __dir__ . '/js/featherlight.load.js';
+            file_put_contents($file, $init);
+
             $this->grav['assets']
                 ->addCss('plugin://featherlight/css/featherlight.min.css')
-                ->addInlineJs($init);
+                // ->addInlineJs($init);
+                ->addJS('plugin://featherlight/js/featherlight.load.js');
         } elseif ($config['gallery']) {
             $init = $this->getInitJs($config);
+            $file = __dir__ . '/js/featherlight.load.js';
+            file_put_contents($file, $init);
             $this->grav['assets']
                  ->addCss('plugin://featherlight/css/featherlight.min.css')
                  ->addCss('plugin://featherlight/css/featherlight.gallery.min.css')
                  ->add('jquery', 101)
                  ->addJs('plugin://featherlight/js/featherlight.min.js')
                  ->addJs('plugin://featherlight/js/featherlight.gallery.min.js')
-                 ->addInlineJs($init);
+                 // ->addInlineJs($init);
+                ->addJS('plugin://featherlight/js/featherlight.load.js');
         } else {
             $init = $this->getInitJs($config);
+            $file = __dir__ . '/js/featherlight.load.js';
+            file_put_contents($file, $init);
             $this->grav['assets']
                 ->addCss('plugin://featherlight/css/featherlight.min.css')
                 ->add('jquery', 101)
                 ->addJs('plugin://featherlight/js/featherlight.min.js')
-                ->addInlineJs($init);
+                // ->addInlineJs($init);
+                ->addJS('plugin://featherlight/js/featherlight.load.js');
         }
     }
 
